@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('list', 'HelloController@list');
+Route::get('foreach_loop', 'HelloController@foreach_loop');
