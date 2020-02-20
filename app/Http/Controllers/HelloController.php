@@ -7,26 +7,26 @@ use Illuminate\Http\Request;
 
 class HelloController extends Controller
 {
-    public function index()
-    {
-        return view('hello.index');
-    }
 
     public function list()
     {
         $data = [
             'records' => Book::all()
         ];
-        return view('hello.list',$data);
+        return view('hello.list', $data);
     }
-    
+
     public function foreach_loop()
     {
-   
-        return view('hello.foreach_loop',[
-            'weeks' => ['月','火','水','木','金','土','日']
+        return view('hello.foreach_loop', [
+            'weeks' => ['月', '火', '水', '木', '金', '土', '日']
         ]);
     }
 
-
+    public function index()
+    {
+        return view('hello.index', [
+            'massage' => 'Hello'
+        ]);
+    }
 }
