@@ -19,3 +19,4 @@ Route::get('/', function () {
 Route::get('list', 'HelloController@list');
 Route::get('foreach_loop', 'HelloController@foreach_loop');
 Route::get('master', 'ViewController@master');
+Route::get('comp', 'ViewController@comp');
