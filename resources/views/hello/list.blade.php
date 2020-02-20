@@ -15,15 +15,7 @@
                 <th>出版社</th>
                 <th>刊行日</th>
             </tr>
-            @foreach ($recodes as $recode)
-            <tr>
-                <td>{{$recode->title}}</td>
-                <td>{{$recode->price}}円</td>
-                <td>{{$recode->publisher}}</td>
-                <td>{{$recode->published}}</td>
-            </tr>
-
-            @endforeach
+            @each('subviews.book', $records, 'record', 'subviews.empty')
         </table>
     </body>
 

@@ -15,7 +15,7 @@ class HelloController extends Controller
     public function list()
     {
         $data = [
-            'recodes' => Book::all()
+            'records' => Book::all()
         ];
         return view('hello.list',$data);
     }
