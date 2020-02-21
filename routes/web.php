@@ -47,3 +47,10 @@ Route::resource('articles', 'ArticleController');
 Route::fallback(function () {
     return view('route.error', ['collection' => [1, 2, 3, 4, 5]]);
 });
+
+Route::get('ctrl/plain', 'CtrlController@plain');
+
+Route::get('ctrl/header', 'CtrlController@header');
+Route::get('ctrl/outJson', 'CtrlController@outJson');
+Route::get('ctrl/outFile', 'CtrlController@outFile');
+Route::get('ctrl/outCsv', 'CtrlController@outCsv');
