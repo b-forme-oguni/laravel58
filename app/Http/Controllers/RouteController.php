@@ -10,6 +10,6 @@ class RouteController extends Controller
         return 'id値：'.$id;
     }
     public function search($id){
-        return 'id値：'.$id;
+        return '可変長の値：'.$id;
     }
 }
