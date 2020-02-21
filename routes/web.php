@@ -57,3 +57,6 @@ Route::get('ctrl/outCsv', 'CtrlController@outCsv');
 Route::get('ctrl/outImage', 'CtrlController@outImage');
 Route::get('ctrl/redirectBasic', 'CtrlController@redirectBasic');
 Route::get('ctrl/index', 'CtrlController@index');
+
+Route::get('ctrl/result', 'CtrlController@form');
+Route::post('ctrl/result', 'CtrlController@result');
