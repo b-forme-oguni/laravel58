@@ -64,4 +64,20 @@ class CtrlController extends Controller
         return response()
         ->file('C:/Data/wings.png',['content-type'=>'image/png']);
     }
+
+    // リダイレクトする
+    public function redirectBasic(){
+        return redirect('hallo/list');
+    }
+
+    // リクエストパスを表示する
+    public function index(Request $req)
+    {
+        return
+        'ルートパス：'.$req->root().'<br>'.
+        'リクエストパス：'.$req->path().'<br>'.
+        'リクエストURL：'.$req->url().'<br>'.
+        'IPアドレス：'.$req->ip().'<br>'.
+        'ユーザーエージェント：'.$req->userAgent().'<br>'
+        ;}
 }
