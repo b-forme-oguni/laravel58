@@ -21,3 +21,7 @@ Route::get('foreach_loop', 'HelloController@foreach_loop');
 Route::get('master', 'ViewController@master');
 Route::get('comp', 'ViewController@comp');
 Route::get('index', 'HelloController@index');
+Route::get('route/param/{id}', 'RouteController@param')
+->where(['id'=>'[0-9]{2,3}']);
+Route::get('route/search/{keywd?}','RouteController@search')
+->where('keywd','.*');
