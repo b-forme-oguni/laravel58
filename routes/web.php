@@ -54,3 +54,4 @@ Route::get('ctrl/header', 'CtrlController@header');
 Route::get('ctrl/outJson', 'CtrlController@outJson');
 Route::get('ctrl/outFile', 'CtrlController@outFile');
 Route::get('ctrl/outCsv', 'CtrlController@outCsv');
+Route::get('ctrl/outImage', 'CtrlController@outImage');
