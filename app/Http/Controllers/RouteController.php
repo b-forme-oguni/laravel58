@@ -12,4 +12,13 @@ class RouteController extends Controller
     public function search($id){
         return '可変長の値：'.$id;
     }
+    public function info(){
+        return 'info';
+    }
+    public function article(){
+        return 'article';
+    }
+    public function ns(){
+        return 'ns';
+    }
 }
