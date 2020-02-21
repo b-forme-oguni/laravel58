@@ -18,7 +18,7 @@ class RouteController extends Controller
     public function article(){
         return 'article';
     }
-    public function ns(){
-        return 'ns';
-    }
+    // public function ns(){
+    //     return 'ns';
+    // }
 }

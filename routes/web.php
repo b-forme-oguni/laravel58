@@ -22,17 +22,28 @@ Route::get('master', 'ViewController@master');
 Route::get('comp', 'ViewController@comp');
 Route::get('index', 'HelloController@index');
 Route::get('route/param/{id}', 'RouteController@param')
-->where(['id'=>'[0-9]{2,3}']);
-Route::get('route/search/{keywd?}','RouteController@search')
-->where('keywd','.*');
+    ->where(['id' => '[0-9]{2,3}']);
+Route::get('route/search/{keywd?}', 'RouteController@search')
+    ->where('keywd', '.*');
 // 共通のパスを頭につけたルート指定
-Route::prefix('members')->group(function(){
-    Route::get('info','RouteController@info');
-    Route::get('article','RouteController@article');
+Route::prefix('members')->group(function () {
+    Route::get('info', 'RouteController@info');
+    Route::get('article', 'RouteController@article');
 });
 // ネームスペースコントローラー
-Route::namespace('Main')->group(function(){
-    Route::get('route/ns', 'RouteController@ns');
-});
+// Route::namespace('Main')->group(function(){
+//     Route::get('route/ns', 'RouteController@ns');
+// });
 // アクションの省略
-Route::view('/route', 'route.view',['name'=>'Laravel']);
+Route::view('/route', 'route.view', ['name' => 'Laravel']);
+
+// リダイレクト
+Route::redirect('/hoge', '/', 301);
+
+// リソースルート
+Route::resource('articles', 'ArticleController');
+
+//フォールバック
+Route::fallback(function () {
+    return view('route.error', ['collection' => [1, 2, 3, 4, 5]]);
+});
