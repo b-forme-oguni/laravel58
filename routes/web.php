@@ -58,5 +58,6 @@ Route::get('ctrl/outImage', 'CtrlController@outImage');
 Route::get('ctrl/redirectBasic', 'CtrlController@redirectBasic');
 Route::get('ctrl/index', 'CtrlController@index');
 
+// 入力フォームの内容をPOSTで受け取って表示
 Route::get('ctrl/result', 'CtrlController@form');
 Route::post('ctrl/result', 'CtrlController@result');
