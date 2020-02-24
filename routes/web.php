@@ -11,6 +11,9 @@
 |
 */
 
+use App\Http\Controllers\HelloController;
+use App\Http\Middleware\HelloMiddleware;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -61,3 +64,6 @@ Route::get('ctrl/index', 'CtrlController@index');
 // 入力フォームの内容をPOSTで受け取って表示
 Route::get('ctrl/result', 'CtrlController@form');
 Route::post('ctrl/result', 'CtrlController@result');
+
+Route::get('hello', 'HelloController@index')
+    ->middleware(HelloMiddleware::class);

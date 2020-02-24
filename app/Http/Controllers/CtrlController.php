@@ -49,24 +49,24 @@ class CtrlController extends Controller
     {
         return response()
             ->streamDownload(function () {
-                print(
-                    "1,2019/10/1,123\n" .
+                print("1,2019/10/1,123\n" .
                     "2,2019/10/2,116\n" .
                     "3,2019/10/3,98\n" .
                     "4,2019/10/4,102\n" .
-                    "5,2019/10/5,134\n"
-                );
+                    "5,2019/10/5,134\n");
             }, 'download.csv', ['content-type' => 'text/csv']);
     }
 
     // 指定されたフォルダ内のpng画像をページに出力
-    public function outImage() {
+    public function outImage()
+    {
         return response()
-        ->file('C:/Data/wings.png',['content-type'=>'image/png']);
+            ->file('C:/Data/wings.png', ['content-type' => 'image/png']);
     }
 
     // リダイレクトする
-    public function redirectBasic(){
+    public function redirectBasic()
+    {
         return redirect('hallo/list');
     }
 
@@ -74,23 +74,24 @@ class CtrlController extends Controller
     public function index(Request $req)
     {
         return
-        'ルートパス：'.$req->root().'<br>'.
-        'リクエストパス：'.$req->path().'<br>'.
-        'リクエストURL：'.$req->url().'<br>'.
-        'IPアドレス：'.$req->ip().'<br>'.
-        'ユーザーエージェント：'.$req->userAgent().'<br>'
-        ;}
+            'ルートパス：' . $req->root() . '<br>' .
+            'リクエストパス：' . $req->path() . '<br>' .
+            'リクエストURL：' . $req->url() . '<br>' .
+            'IPアドレス：' . $req->ip() . '<br>' .
+            'ユーザーエージェント：' . $req->userAgent() . '<br>';
+    }
 
-        public function form()
-        {
-            return view('ctrl.form',['result' => '']);
-        }
+    // POSTによるフォームの送信
+    public function form()
+    {
+        return view('ctrl.form', ['result' => '']);
+    }
 
-        public function result(Request $req){
-            $name = $req->name;
-            return view('ctrl.form',[
-                'result'=>'こんにちは、'.$name.'さん！'
-            ]);
-        }
-
+    public function result(Request $req)
+    {
+        $name = $req->name;
+        return view('ctrl.form', [
+            'result' => 'こんにちは、' . $name . 'さん！'
+        ]);
+    }
 }
