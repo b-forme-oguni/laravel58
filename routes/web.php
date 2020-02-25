@@ -65,5 +65,5 @@ Route::get('ctrl/index', 'CtrlController@index');
 Route::get('ctrl/result', 'CtrlController@form');
 Route::post('ctrl/result', 'CtrlController@result');
 
-Route::get('hello', 'HelloController@index')
-->middleware('hello');
+Route::get('hello', 'HelloController@index');
+Route::post('hello', 'HelloController@post');
