@@ -8,6 +8,8 @@
 <table>
     <form action="/hello" method="post">
         {{ csrf_field() }}
+
+        {{-- neme属性（’name’）がエラーの場合のメッセージ表示 --}}
         @if ($errors->has('name'))
         <tr>
             <th>ERROR</th>
@@ -19,6 +21,7 @@
             <td><input type="text" name="name" value="{{old('name')}}"></td>
         </tr>
 
+        {{-- neme属性（’mail’）がエラーの場合のメッセージ表示 --}}
         @if ($errors->has('mail'))
         <tr>
             <th>ERROR</th>
@@ -27,9 +30,10 @@
         @endif
         <tr>
             <th>mail: </th>
-            <td><input type="text" name="mail" value="{{old('name')}}"></td>
+            <td><input type="text" name="mail" value="{{old('mail')}}"></td>
         </tr>
 
+        {{-- neme属性（’age’）がエラーの場合のメッセージ表示 --}}
         @if ($errors->has('age'))
         <tr>
             <th>ERROR</th>
@@ -38,10 +42,10 @@
         @endif
         <tr>
             <th>age: </th>
-            <td><input type="text" name="age" value="{{old('name')}}"></td>
+            <td><input type="text" name="age" value="{{old('age')}}"></td>
         </tr>
         <tr>
-            <th>name: </th>
+            <th>送信: </th>
             <td><input type="submit" value="send"></td>
         </tr>
     </form>
