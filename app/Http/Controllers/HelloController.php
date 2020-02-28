@@ -55,7 +55,7 @@ class HelloController extends Controller
 
         $validator = Validator::make($request->all(), $rules, $message);
         if ($validator->fails()) {
-            return redirect('/hello')
+            return redirect('\hello')
                 ->withErrors($validator)
                 ->withInput();
         }
