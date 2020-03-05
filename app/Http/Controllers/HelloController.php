@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\HelloRequest;
+use Hamcrest\Type\IsNumeric;
 use Illuminate\Support\Facades\Validator;
 
 class HelloController extends Controller
@@ -53,6 +54,31 @@ class HelloController extends Controller
             'age' => $request->age,
         ];
         DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
+        return redirect('/hello');
+    }
+
+    public function edit(Request $request)
+    {
+        if (!is_numeric($request->id)) {
+            return view('route.error');
+        }
+        $param = ['id' => $request->id];
+        $item = DB::select('select * from people where id = :id', $param);
+        if (!$item) {
+            return view('route.error');
+        }
+        return view('hello.edit', ['form' => $item[0]]);
+    }
+
+    public function update(Request $request)
+    {
+        $param = [
+            'id' => $request->id,
+            'name' => $request->name,
+            'mail' => $request->mail,
+            'age' => $request->age,
+        ];
+        DB::update('update people set name = :name, mail = :mail, age = :age where id = :id', $param);
         return redirect('/hello');
     }
 }

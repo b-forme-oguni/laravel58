@@ -48,7 +48,7 @@ Route::resource('articles', 'ArticleController');
 
 //フォールバック
 Route::fallback(function () {
-    return view('route.error', ['collection' => [1, 2, 3, 4, 5]]);
+    return view('route.error');
 });
 
 Route::get('ctrl/plain', 'CtrlController@plain');
@@ -70,4 +70,7 @@ Route::post('hello', 'HelloController@post');
 
 Route::get('hello/add', 'HelloController@add');
 Route::post('hello/add', 'HelloController@create');
+
+Route::get('hello/edit', 'HelloController@edit');
+Route::post('hello/edit', 'HelloController@update');
 

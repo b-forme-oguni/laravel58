@@ -10,11 +10,6 @@
 
     <body>
         <p class="alert">ページが見つかりませんでした。</p>
-        <ul>
-            @foreach ($collection as $item)
-            <li>{{$item}}</li>
-            @endforeach
-        </ul>
     </body>
 
 </html>
