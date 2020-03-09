@@ -31,7 +31,7 @@ class HelloController extends Controller
 
     public function index(Request $request)
     {
-        $items = DB::table('people')->orderBy('age','asc')->get();
+        $items = DB::table('people')->orderBy('age', 'asc')->get();
         return view('hello.index', ['items' => $items]);
     }
 
@@ -98,11 +98,12 @@ class HelloController extends Controller
 
     public function show(Request $request)
     {
-        $min = $request->min;
-        $max = $request->max;
+        $page = $request->page;
+        $recode = $request->recode;
         $items = DB::table('people')
-        ->whereRaw('age >= ? and age <= ?',
-        [$min, $max])->get();
+            ->offset($page * $recode)
+            ->limit($recode)
+            ->get();
         return view('hello.show', ['items' => $items]);
     }
 }
