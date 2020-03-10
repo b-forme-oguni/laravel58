@@ -85,18 +85,23 @@ class HelloController extends Controller
     public function del(Request $request)
     {
         $item = DB::table('people')
-        ->where('id',$request->id)->first();
+            ->where('id', $request->id)->first();
         return view('hello.del', ['form' => $item]);
     }
 
     public function remove(Request $request)
     {
         DB::table('people')
-        ->where('id',$request->id)->delete();
-        
+            ->where('id', $request->id)->delete();
         return redirect('/hello');
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
     public function show(Request $request)
     {
         $page = $request->page;
