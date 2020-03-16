@@ -13,6 +13,7 @@
 
 use App\Http\Middleware\HelloMiddleware;
 use App\Http\Controllers\HelloController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -83,3 +84,6 @@ Route::get('person', 'PersonController@index');
 
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find','PersonController@search');
+
+Route::get('person/add','PersonController@add');
+Route::post('person/add','PersonController@create');
