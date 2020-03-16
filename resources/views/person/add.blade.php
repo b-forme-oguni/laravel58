@@ -21,7 +21,7 @@
 
 @endif
 <table>
-    <form action="\person\add" method="post">
+    <form action="/person/add" method="post">
 
         {{ csrf_field() }}
         <tr>
