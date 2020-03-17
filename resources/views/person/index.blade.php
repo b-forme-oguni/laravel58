@@ -3,20 +3,28 @@
 @section('title', 'Person.index')
 
 @section('menuber')
-    @parent
-    インデックスページ
+@parent
+インデックスページ
 @endsection
 
 @section('content')
-    <table><tr><th>Data</th></tr>
-        @foreach ($items as $item)
-            <tr>
-            <td>{{$item->getData()}}</td>
-            </tr>
-        @endforeach
-    </table>
+<table>
+    <tr>
+        <th>Person</th>
+        <th>Board</th>
+    </tr>
+    @foreach ($items as $item)
+    <tr>
+        <td>{{$item->getData()}}</td>
+        <td>@if ($item->board != null)
+
+            {{ $item->board->getData() }}
+            @endif</td>
+    </tr>
+    @endforeach
+</table>
 @endsection
 
 @section('footer')
-    copyright 2017 tuyano.
+copyright 2017 tuyano.
 @endsection
