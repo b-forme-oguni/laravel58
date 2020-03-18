@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Person;
 use Illuminate\Http\Request;
-use Barryvdh\Debugbar\Facade as Debugbar;
 
 class PersonController extends Controller
 {
@@ -25,11 +24,9 @@ class PersonController extends Controller
     public function index(Request $request)
     {
         $items = Person::all();
-        Debugbar::info('$items='. $items);
-        return view('person.index', compact('items'));
-
+        \Debugbar::info('$items=' . $items);
         // dd($items);
-        // return view('person.index', ['items' => $items]);
+        return view('person.index', ['items' => $items]);
     }
 
     public function add(Request $request)
@@ -50,7 +47,7 @@ class PersonController extends Controller
     public function edit(Request $request)
     {
         $person = Person::find($request->id);
-        return view('person.edit',['form' => $person]);
+        return view('person.edit', ['form' => $person]);
     }
 
     public function update(Request $request)
