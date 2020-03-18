@@ -23,11 +23,16 @@ class PersonController extends Controller
 
     public function index(Request $request)
     {
-        $items = Person::all();
-        \Debugbar::info('$items=' . $items);
-        \Debugbar::info('$boards=' . $items[0]->boards);
+        $hasItems = Person::has('boards')->get();
+        $noItems = Person::doesntHave('boards')->get();
+        \Debugbar::info('$items=' . $hasItems);
+        \Debugbar::info('$boards=' . $noItems);
         // dd($items);
-        return view('person.index', ['items' => $items]);
+        $param = [
+            'hasItems' => $hasItems,
+            'noItems' => $noItems,
+        ];
+        return view('person.index', $param);
     }
 
     public function add(Request $request)

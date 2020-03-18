@@ -13,10 +13,10 @@
         <th>Person</th>
         <th>Board</th>
     </tr>
-    @foreach ($items as $item)
+    @foreach ($hasItems as $item)
     <tr>
         <td>{{$item->getData()}}</td>
-        <td>@if ($item->boards != null)
+        <td>
             <table width="100%">
                 @foreach ($item->boards as $obj)
                 <tr>
@@ -25,10 +25,25 @@
 
                 @endforeach
             </table>
-            @endif</td>
+        </td>
     </tr>
     @endforeach
 </table>
+
+<div style="margin:10px;"></div>
+<table>
+    <tr>
+        <th>Person</th>
+    </tr>
+    @foreach ($noItems as $item)
+    <tr>
+        <td>{{$item->getData()}}</td>
+    </tr>
+    @endforeach
+</table>
+
+
+
 @endsection
 
 @section('footer')
