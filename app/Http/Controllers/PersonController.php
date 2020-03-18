@@ -25,6 +25,7 @@ class PersonController extends Controller
     {
         $items = Person::all();
         \Debugbar::info('$items=' . $items);
+        \Debugbar::info('$boards=' . $items[0]->boards);
         // dd($items);
         return view('person.index', ['items' => $items]);
     }
