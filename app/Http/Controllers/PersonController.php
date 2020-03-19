@@ -25,8 +25,8 @@ class PersonController extends Controller
     {
         $hasItems = Person::has('boards')->get();
         $noItems = Person::doesntHave('boards')->get();
-        \Debugbar::info('$items=' . $hasItems);
-        \Debugbar::info('$boards=' . $noItems);
+        \Debugbar::info('$hasItems=' . $hasItems);
+        \Debugbar::info('$noItems=' . $noItems);
         // dd($items);
         $param = [
             'hasItems' => $hasItems,
