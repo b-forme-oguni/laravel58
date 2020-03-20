@@ -1,6 +1,7 @@
 @extends('layouts.base')
 
 @section('main')
+<p>{{$view_message}}</p>
 <table>
     <tr>
         <th>Name</th>

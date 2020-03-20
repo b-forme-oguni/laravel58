@@ -31,6 +31,11 @@ class HelloServiceProvider extends ServiceProvider
         //     return new HelloValidator($translator, $data, $rules, $messages);
         // });
 
+        View::composer(
+            'hello.index' ,'App\Http\Composers\HelloComposer'
+        );
+
+
         Validator::extend('hello', function ($attribute, $value, $parameters, $validator) {
             if (is_numeric($value)) {
                 return $value % 2 == 0;
