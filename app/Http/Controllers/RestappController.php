@@ -16,7 +16,7 @@ class RestappController extends Controller
     {
         $items = Restdata::all();
         \Debugbar::info('$items=' . $items);
-        return $items->toArray();
+        return view('hello.restindex', compact('items'));
     }
 
     /**
@@ -37,6 +37,7 @@ class RestappController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, Restdata::$rules);
         $restdata = new Restdata;
         $form = $request->all();
         unset($form['_token']);

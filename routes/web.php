@@ -99,5 +99,6 @@ Route::get('board/add', 'BoardController@add');
 Route::post('board/add', 'BoardController@create');
 
 Route::resource('rest','RestappController');
+Route::resource('restindex','RestappController');
 
 Route::get('hello/rest', 'HelloController@rest');
