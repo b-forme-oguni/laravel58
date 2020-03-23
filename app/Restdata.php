@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Restdata extends Model
 {
     protected $table = 'restdata';
+
     protected $guarded = ['id'];
 
     public static $rules = [

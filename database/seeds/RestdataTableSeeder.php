@@ -16,14 +16,22 @@ class RestdataTableSeeder extends Seeder
             'message' => 'Google Japan',
             'url' => 'http://www.goolgle.co.jp',
         ];
-
         $restdata = new Restdata;
         $restdata->fill($param)->save();
+
         $param = [
             'message' => 'Yahoo Japan',
             'url' => 'http://www.yahoo.co.jp',
         ];
         $restdata = new Restdata;
-        
+        $restdata->fill($param)->save();
+
+        $param = [
+            'message' => 'MSG Japan',
+            'url' => 'http://www.msn.com/ja-jp',
+        ];
+        $restdata = new Restdata;
+        $restdata->fill($param)->save();
+
     }
 }
