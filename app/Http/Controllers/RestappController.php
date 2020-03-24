@@ -15,7 +15,7 @@ class RestappController extends Controller
     public function index()
     {
         $items = Restdata::all();
-        \Debugbar::info('$items=' . $items);
+        // \Debugbar::info('$items=' . $items);
         return view('hello.restindex', compact('items'));
     }
 
