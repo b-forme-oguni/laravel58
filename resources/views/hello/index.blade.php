@@ -1,7 +1,24 @@
-@extends('layouts.base')
+@extends('layouts.helloapp')
+<style>
+    .pagination {
+        font-size: 10pt;
+    }
 
-@section('main')
-<p>{{$view_message}}</p>
+    .pagination li {
+        display: inline-block
+    }
+
+</style>
+
+@section('title','Index')
+
+@section('menuber')
+@parent
+インデックスページ
+@endsection
+
+
+@section('content')
 <table>
     <tr>
         <th>Name</th>
@@ -16,4 +33,10 @@
     </tr>
     @endforeach
 </table>
+
+{{ $items->links() }}
+@endsection
+
+@section('footer')
+copyright 2017 tuyano.
 @endsection
