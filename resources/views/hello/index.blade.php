@@ -50,7 +50,7 @@
     @endforeach
 </table>
 
-{{ $items->appends(['sort'=> $sort])->links() }}
+{{ $items->appends(['sort'=> $sort])->links('vendor.pagination.semantic-ui') }}
 @endsection
 
 @section('footer')
