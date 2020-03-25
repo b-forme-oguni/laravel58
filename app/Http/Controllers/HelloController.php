@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\HelloRequest;
+use App\Person;
 use Hamcrest\Type\IsNumeric;
 use Illuminate\Support\Facades\Validator;
 
@@ -31,8 +32,11 @@ class HelloController extends Controller
 
     public function index(Request $request)
     {
-        $items = DB::table('people')->simplePaginate(3);
-        return view('hello.index', ['items' => $items]);
+        $sort = $request->sort;
+        // $items = DB::table('people')->simplePaginate(3)->orderBy('age', 'asc');
+        $items = Person::orderBy($sort, 'asc')->simplePaginate(3);
+        $param = ['items' => $items, 'sort' => $sort];
+        return view('hello.index', $param);
     }
 
     public function post(Request $request)
