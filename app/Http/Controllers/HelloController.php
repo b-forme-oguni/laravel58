@@ -34,9 +34,8 @@ class HelloController extends Controller
     {
         $sort = $request->sort;
         // $items = DB::table('people')->simplePaginate(3)->orderBy('age', 'asc');
-        $items = Person::orderBy($sort, 'asc')->simplePaginate(3);
-        $param = ['items' => $items, 'sort' => $sort];
-        return view('hello.index', $param);
+        $items = Person::orderBy($sort, 'asc')->paginate(3);
+        return view('hello.index', compact('items','sort'));
     }
 
     public function post(Request $request)
