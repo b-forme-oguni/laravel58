@@ -35,6 +35,11 @@
 
 
 @section('content')
+@if (Auth::check())
+<p>ログインしました。USER: {{$user ->name . '(' . $user ->email . ')'}}</p>
+@else
+<p>※ログインしていません。（<a href="login">ログイン</a>｜<a href="/register">登録</a>）</p>
+@endif
 <table>
     <tr>
         <th><a href="/hello?sort=name">Name</a></th>
@@ -50,7 +55,7 @@
     @endforeach
 </table>
 
-{{ $items->appends(['sort'=> $sort])->links('vendor.pagination.semantic-ui') }}
+{{ $items->appends(['sort'=> $sort])->links() }}
 @endsection
 
 @section('footer')
