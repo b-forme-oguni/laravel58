@@ -48,9 +48,9 @@ Route::redirect('/hoge', '/', 301);
 Route::resource('articles', 'ArticleController');
 
 //フォールバック
-Route::fallback(function () {
-    return view('route.error');
-});
+// Route::fallback(function () {
+//     return view('route.error');
+// });
 
 Route::get('ctrl/plain', 'CtrlController@plain');
 
